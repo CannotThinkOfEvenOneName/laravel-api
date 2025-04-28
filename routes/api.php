@@ -13,7 +13,7 @@ Route::get('/user', function (Request $request) {
 Route::post("/register", [UserController::class, "registerApi"]);
 Route::post("/login", [UserController::class, "loginApi"]);
 
-Route::post("/products", [ProductController::class, "addProductApi"])->middleware('auth:sanctum');
-Route::get("/products", [ProductController::class, "getProductsApi"]);
-Route::delete("/products/{product}", [ProductController::class, "deleteProductApi"])->middleware('auth:sanctum');
-Route::put("/products/{product}", [ProductController::class, "updateProductApi"])->middleware('auth:sanctum');
+Route::post("/products/add-product", [ProductController::class, "addProductApi"])->middleware('auth:sanctum');
+Route::get("/products/get-all-product", [ProductController::class, "getProductsApi"]);
+Route::delete("/products/{product}/delete-product", [ProductController::class, "deleteProductApi"])->middleware('auth:sanctum');
+Route::put("/products/{product}/update-product", [ProductController::class, "updateProductApi"])->middleware('auth:sanctum');
