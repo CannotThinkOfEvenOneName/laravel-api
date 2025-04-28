@@ -12,3 +12,4 @@ Route::get('/user', function (Request $request) {
 // Route::post("/admins/register", []);
 
 Route::post("/users/register", [UserController::class, "registerApi"]);
+Route::post("/users/login", [UserController::class, "loginApi"]);
