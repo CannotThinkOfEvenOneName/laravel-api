@@ -15,3 +15,4 @@ Route::post("/login", [UserController::class, "loginApi"]);
 
 Route::post("/products", [ProductController::class, "addProductApi"])->middleware('auth:sanctum');
 Route::get("/products", [ProductController::class, "getProductsApi"]);
+Route::delete("/products/{product}", [ProductController::class, "deleteProductApi"])->middleware('auth:sanctum');

@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function deleteProductApi(Product $product) {
+        $user = auth()->user();
+        if($user->isAdmin === 0) {
+            return "You are unauthorized to delete a product";
+        }
+        $product->delete();
+        return "Deleted product";
+    }
     public function getProductsApi() {
         $products = Product::all();
         return $products;
