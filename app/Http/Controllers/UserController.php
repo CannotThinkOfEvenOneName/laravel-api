@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -14,7 +13,7 @@ class UserController extends Controller
             'name' => 'required',
             'password' => 'required'
         ]);
-        if (auth("web")->attempt($incomingFields)) {
+        if (auth()->attempt($incomingFields)) {
             $user = User::where('name', $incomingFields['name'])->first();
             $token = $user->createToken('userstoken')->plainTextToken;
             return $token;

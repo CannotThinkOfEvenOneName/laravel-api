@@ -17,8 +17,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2); 
             $table->string('image')->nullable();
-            $table->foreignId('created_by')->constrained('admins')->onDelete('cascade');
-            $table->timestamp('created_at')->nullable();
+            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
