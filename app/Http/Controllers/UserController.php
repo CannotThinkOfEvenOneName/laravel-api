@@ -14,7 +14,7 @@ class UserController extends Controller
             'name' => 'required',
             'password' => 'required'
         ]);
-        if (auth()->attempt($incomingFields)) {
+        if (auth("web")->attempt($incomingFields)) {
             $user = User::where('name', $incomingFields['name'])->first();
             $token = $user->createToken('userstoken')->plainTextToken;
             return $token;
