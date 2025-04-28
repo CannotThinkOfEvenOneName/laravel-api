@@ -7,6 +7,18 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function updateProductApi(Product $product) {
+        $user = auth()->user();
+        if($user->isAdmin === 0) {
+            return "You are unauthorized to update a product";
+        }
+        $incomingFields = request()->validate([
+            'name' => 'required',
+            'price' => 'required'
+        ]);
+        $product->update($incomingFields);
+        return $product;
+    }
     public function deleteProductApi(Product $product) {
         $user = auth()->user();
         if($user->isAdmin === 0) {
