@@ -19,6 +19,9 @@ class ProductController extends Controller
         ]);
 
         $user = auth()->user();
+        if($user->isAdmin === 0) {
+            return "You are unauthorized to add a product";
+        }
         
         $newProduct = Product::create([
             'name' => $request->name,
