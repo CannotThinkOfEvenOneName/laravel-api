@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartItemController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -18,3 +19,5 @@ Route::get("/products/get-all-product", [ProductController::class, "getProductsA
 Route::delete("/products/{product}/delete-product", [ProductController::class, "deleteProductApi"])->middleware('auth:sanctum');
 Route::put("/products/{product}/update-product", [ProductController::class, "updateProductApi"])->middleware('auth:sanctum');
 
+Route::post("/carts/add-to-cart", [CartItemController::class, "addToCartApi"])->middleware('auth:sanctum');
+Route::get("/carts/get-cart-items", [CartItemController::class, "getAllCartItemsApi"])->middleware("auth:sanctum");
