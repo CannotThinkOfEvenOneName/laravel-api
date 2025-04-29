@@ -21,3 +21,4 @@ Route::put("/products/{product}/update-product", [ProductController::class, "upd
 
 Route::post("/carts/add-to-cart", [CartItemController::class, "addToCartApi"])->middleware('auth:sanctum');
 Route::get("/carts/get-cart-items", [CartItemController::class, "getAllCartItemsApi"])->middleware("auth:sanctum");
+Route::delete("/carts/{cartItem}/delete-cart-item", [CartItemController::class, "deleteCartItemApi"])->middleware('auth:sanctum');

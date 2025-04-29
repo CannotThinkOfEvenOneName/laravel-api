@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class CartItemController extends Controller
 {
+    public function deleteCartItemApi(CartItem $cartItem)
+    {
+        $user = auth()->user();
+        if ($user->isAdmin === 1) {
+            return "You are an admin, you cannot add purchase any product";
+        }
+
+        $cartItem->delete();
+        return response()->json(['message' => 'Cart item deleted successfully']);
+
+    }
     public function getAllCartItemsApi()
     {
         $user = auth()->user();
