@@ -17,3 +17,4 @@ Route::post("/products/add-product", [ProductController::class, "addProductApi"]
 Route::get("/products/get-all-product", [ProductController::class, "getProductsApi"]);
 Route::delete("/products/{product}/delete-product", [ProductController::class, "deleteProductApi"])->middleware('auth:sanctum');
 Route::put("/products/{product}/update-product", [ProductController::class, "updateProductApi"])->middleware('auth:sanctum');
+
